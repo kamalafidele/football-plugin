@@ -1,0 +1,130 @@
+openapi: 3.0.1
+info:
+  title: Football Plugin
+  description: A plugin that helps the user to get recent and accurate infomation about footbal using ChatGPT.
+  version: 'v1'
+servers:
+  - url: http://localhost:8000
+paths:
+  /api/v1/players/:
+    get:
+      operationId: getTeamPlayers
+      summary: Get the list of players for the team
+      parameters:
+      - in: path
+        name: league_name
+        schema:
+            type: string
+        required: true
+        description: The name of the league.
+      - in: path
+        name: country_name
+        schema:
+            type: string
+        required: true
+        description: The name of the country where the leauge belongs.
+      - in: path
+        name: team_name
+        schema:
+            type: true
+        required: true
+        description: The name of the team
+
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/getTeamPlayersResponse'
+
+  /api/v1/players/top-scorers/:
+    get: 
+      operationId: getTopScorers
+      summary: Get the list of top goalscorers in a league.
+      parameters:
+        - in: path
+          name: league_name
+          schema:
+              type: string
+          required: true
+          description: The name of the league.
+        - in: path
+          name: country_name
+          schema:
+              type: true
+          required: true
+          description: The name of the country where the leauge belongs.
+
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/getTopScorersResponse'
+
+  /api/v1/teams/:
+    get: 
+      operationId: getTeams
+      summary: Get the list of teams in a league.
+      parameters:
+        - in: path
+          name: league_name
+          schema:
+              type: string
+          required: true
+          description: The name of the league.
+        - in: path
+          name: country_name
+          schema:
+              type: true
+          required: true
+          description: The name of the country where the leauge belongs.
+
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/getTeamsResponse'
+
+
+components:
+  schemas:
+    getTeamPlayersResponse:
+      type: array
+      items:
+        type: object
+        properties:
+          player_name: string
+          player_number: string
+          player_type: string
+          player_age: string
+          player_match_played: string
+          player_goals: string
+          player_yellow_cards: string
+          player_red_cards: string
+          player_image: string
+    
+    getTopScorersResponse:
+      type: array
+      items:
+        type: object
+        properties:
+           player_place: number
+           player_name: string
+           team_name: string
+           goals: number
+           assists: number
+           penality_goals: number
+
+    getTeamsResponse:
+      type: array
+      items:
+        type: object
+        properties:
+           team_name: string
+           team_logo: string
+           team_coach: string

@@ -1,0 +1,151 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "version": "1.0.0",
+    "title": "FOOTBALL API",
+    "description": "FOOTBALL Backend API Documentation"
+  },
+  "host": "localhost:8000",
+  "basePath": "/api/v1/",
+  "schemes": [
+    "http",
+    "https"
+  ],
+  "consumes": [
+    "application/json"
+  ],
+  "produces": [
+    "application/json"
+  ],
+  "paths": {
+    "/matches/current": {
+      "get": {
+        "description": "",
+        "parameters": [
+          {
+            "name": "league_name",
+            "in": "query",
+            "type": "string"
+          },
+          {
+            "name": "country_name",
+            "in": "query",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "404": {
+            "description": "Not Found"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/players/": {
+      "get": {
+        "description": "",
+        "parameters": [
+          {
+            "name": "league_name",
+            "in": "query",
+            "type": "string"
+          },
+          {
+            "name": "country_name",
+            "in": "query",
+            "type": "string"
+          },
+          {
+            "name": "team_name",
+            "in": "query",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "404": {
+            "description": "Not Found"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/players/top-scorers": {
+      "get": {
+        "description": "",
+        "parameters": [
+          {
+            "name": "league_name",
+            "in": "query",
+            "type": "string"
+          },
+          {
+            "name": "country_name",
+            "in": "query",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "404": {
+            "description": "Not Found"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/teams/": {
+      "get": {
+        "description": "",
+        "parameters": [
+          {
+            "name": "league_name",
+            "in": "query",
+            "type": "string"
+          },
+          {
+            "name": "country_name",
+            "in": "query",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "404": {
+            "description": "Not Found"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    }
+  }
+}
