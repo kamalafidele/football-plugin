@@ -1,29 +1,29 @@
-openapi: 3.0.1
+openapi: 3.0.0
 info:
   title: Football Plugin
   description: A plugin that helps the user to get recent and accurate infomation about footbal using ChatGPT.
   version: 'v1'
 servers:
-  - url: http://localhost:8000
+  - url: https://football-plugin.onrender.com
 paths:
   /api/v1/players/:
     get:
       operationId: getTeamPlayers
       summary: Get the list of players for the team
       parameters:
-      - in: path
+      - in: query
         name: league_name
         schema:
             type: string
         required: true
         description: The name of the league.
-      - in: path
+      - in: query
         name: country_name
         schema:
             type: string
         required: true
         description: The name of the country where the leauge belongs.
-      - in: path
+      - in: query
         name: team_name
         schema:
             type: true
@@ -43,13 +43,13 @@ paths:
       operationId: getTopScorers
       summary: Get the list of top goalscorers in a league.
       parameters:
-        - in: path
+        - in: query
           name: league_name
           schema:
               type: string
           required: true
           description: The name of the league.
-        - in: path
+        - in: query
           name: country_name
           schema:
               type: true
@@ -69,13 +69,13 @@ paths:
       operationId: getTeams
       summary: Get the list of teams in a league.
       parameters:
-        - in: path
+        - in: query
           name: league_name
           schema:
               type: string
           required: true
           description: The name of the league.
-        - in: path
+        - in: query
           name: country_name
           schema:
               type: true
@@ -113,12 +113,12 @@ components:
       items:
         type: object
         properties:
-           player_place: number
+           player_place: integer
            player_name: string
            team_name: string
-           goals: number
-           assists: number
-           penality_goals: number
+           goals: integer
+           assists: integer
+           penality_goals: integer
 
     getTeamsResponse:
       type: array
