@@ -11,7 +11,7 @@ const app = express();
 
 dotenv.config();
 
-const { PORT, HOST } = process.env;
+const { PORT, HOST, ENV_MODE } = process.env;
 
 app.use(logger('dev'));
 app.use(express.urlencoded({ extended: true, limit: '50mb', parameterLimit: 50000 }));
@@ -31,6 +31,8 @@ app.use('/api/v1/', routeHandler);
 app.use((req, res) => res.status(404).json({ error: 'We cannot get what you are looking for!' }));
 
 app.listen(PORT, () => {
-  console.log(`APP RUNNING ON ${HOST}:${PORT}`);
-  console.log(`ACCESS API DOCS VIA ${HOST}:${PORT}/api-docs `);
+  const dynamic_host = `${ENV_MODE === 'DEV' ? `${HOST}:${PORT}` : `${HOST}`}`;
+
+  console.log(`APP RUNNING ON ${dynamic_host}`);
+  console.log(`ACCESS API DOCS VIA ${dynamic_host}/api-docs `);
 });

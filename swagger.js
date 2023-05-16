@@ -13,7 +13,7 @@ const doc = {
     title: 'FOOTBALL API',
     description: 'FOOTBALL Backend API Documentation',
   },
-  host: `${ENV_MODE === 'DEV' ? 'localhost' : HOST}:${PORT}`,
+  host: `${ENV_MODE === 'DEV' ? `${HOST}:${PORT}` : HOST}`,
   basePath: '/api/v1/',
   schemes: ['http', 'https'],
   consumes: ['application/json'],

@@ -5,7 +5,7 @@
     "title": "FOOTBALL API",
     "description": "FOOTBALL Backend API Documentation"
   },
-  "host": "localhost:8000",
+  "host": "https://football-plugin.onrender.com",
   "basePath": "/api/v1/",
   "schemes": [
     "http",
