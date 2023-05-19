@@ -1,9 +1,9 @@
 {
     "schema_version": "v1",
-    "name_for_human": "Football Plugin (no auth)",
-    "name_for_model": "football",
-    "description_for_human": "Plugin for getting football information, about players, teams and matches.",
-    "description_for_model": "Plugin for getting football information, about players, teams and matches.",
+    "name_for_human": "Football Notitia Plugin",
+    "name_for_model": "football notitia",
+    "description_for_human": "Plugin for getting football information, about players, top scorers, teams and matches.",
+    "description_for_model": "Plugin for getting football information, about players, top scorers, teams and matches.",
     "auth": {
       "type": "none"
     },

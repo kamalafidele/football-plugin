@@ -1,6 +1,6 @@
 openapi: 3.0.0
 info:
-  title: Football Information Plugin
+  title: Football Notitia
   description: A plugin that helps the user to get recent and accurate infomation about footbal using ChatGPT.
   version: 'v1'
 servers:

@@ -2,6 +2,7 @@ const express = require('express');
 const dotenv = require('dotenv');
 const cors = require('cors');
 const logger = require('morgan');
+const path = require('path');
 
 const swaggerUi = require('swagger-ui-express');
 const routeHandler = require('./src/routes');
@@ -25,6 +26,10 @@ app.use(
     credentials: true,
   })
 );
+
+app.get('/', (req, res) => {
+  return res.sendFile(path.join(__dirname, 'public/homepage.html'));
+});
 
 app.use('/api/v1/', routeHandler);
 
