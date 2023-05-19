@@ -11,7 +11,7 @@ class LeagueService {
             const { data } = await axios.get(`${API}?met=Leagues&APIkey=${ALL_SPORTS_API_TOKEN}`);
             const leagues = data.result;
             const matching = (l) => {
-                return l.league_name.toLowerCase() == league_name.toLowerCase() && l.country_name.toLowerCase() == country_name.toLowerCase();
+                return l.league_name.toLowerCase() == league_name.toLowerCase() || l.country_name.toLowerCase() == country_name.toLowerCase();
             }
 
             league = leagues.find(matching);
