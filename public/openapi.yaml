@@ -1,6 +1,6 @@
 openapi: 3.0.0
 info:
-  title: Football Plugin
+  title: Football Information Plugin
   description: A plugin that helps the user to get recent and accurate infomation about footbal using ChatGPT.
   version: 'v1'
 servers:
@@ -37,6 +37,13 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/getTeamPlayersResponse'
+        
+        "400":
+          description: Query parameters were not provided
+        "404":
+          description: The league was not found
+        "500":
+          description: Internal server error
 
   /api/v1/players/top-scorers/:
     get: 
@@ -63,6 +70,14 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/getTopScorersResponse'
+  
+        "400":
+          description: Query parameters were not provided
+        "404":
+          description: The league was not found
+        "500":
+          description: Internal server error
+
 
   /api/v1/teams/:
     get: 
@@ -90,6 +105,13 @@ paths:
               schema:
                 $ref: '#/components/schemas/getTeamsResponse'
 
+        "400":
+          description: Query parameters were not provided
+        "404":
+          description: The league was not found
+        "500":
+          description: Internal server error
+
 
 components:
   schemas:
@@ -98,33 +120,51 @@ components:
       items:
         type: object
         properties:
-          player_name: string
-          player_number: string
-          player_type: string
-          player_age: string
-          player_match_played: string
-          player_goals: string
-          player_yellow_cards: string
-          player_red_cards: string
-          player_image: string
+          player_name: 
+            type: string
+          player_number:
+            type: string
+          player_type:
+            type: string
+          player_age:
+            type: string
+          player_match_played:
+            type: string
+          player_goals:
+            type: string
+          player_yellow_cards:
+            type: string
+          player_red_cards:
+            type: string
+          player_image:
+            type: string
     
     getTopScorersResponse:
       type: array
       items:
         type: object
         properties:
-           player_place: integer
-           player_name: string
-           team_name: string
-           goals: integer
-           assists: integer
-           penality_goals: integer
+           player_place:
+             type: integer
+           player_name:
+             type: string
+           team_name:
+             type: string
+           goals:
+             type: integer
+           assists:
+             type: integer
+           penality_goals:
+             type: integer
 
     getTeamsResponse:
       type: array
       items:
         type: object
         properties:
-           team_name: string
-           team_logo: string
-           team_coach: string
+           team_name:
+             type: string
+           team_logo:
+             type: string
+           team_coach:
+             type: string
