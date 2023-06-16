@@ -4,7 +4,7 @@ const PlayerService = require("../../services/PlayerService");
 const LeagueService = require("../../services/LeagueService");
 
 router.get(
-  "/top-scorers",
+  "/top-scorers/getTopScorers",
   [
     check("league_name", "league_name is required").exists(),
     check("country_name", "country_name is required").exists(),
