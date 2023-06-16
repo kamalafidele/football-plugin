@@ -2,13 +2,13 @@ openapi: 3.0.1
 info:
   title: Football Notitia
   description: A plugin that helps the user to get recent and accurate infomation about footbal using ChatGPT.
-  version: 'v1'
+  version: "v1"
 servers:
-  - url: https://football-plugin.onrender.com/api/v1
+  - url: https://football-plugin.onrender.com
 paths:
-  /players:
+  /api/v1/players:
     get:
-      operationId: getTeamPlayers
+      operationId: players
       summary: Get the list of players for the team
       parameters:
       - in: query
@@ -42,12 +42,22 @@ paths:
           description: Query parameters were not provided
         "404":
           description: The league was not found
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/errorResponse"
+
         "500":
           description: Internal server error
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/errorResponse"
 
-  /players/top-scorers:
+
+  /api/v1/players/top-scorers:
     get: 
-      operationId: getTopScorers
+      operationId: topScorers
       summary: Get the list of top goalscorers in a league.
       parameters:
         - in: query
@@ -75,8 +85,16 @@ paths:
           description: Query parameters were not provided
         "404":
           description: The league was not found
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/errorResponse"
         "500":
           description: Internal server error
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/errorResponse"
 
       x-code-samples:
         - lang: curl
@@ -84,9 +102,9 @@ paths:
              curl -X GET 'https://football-plugin.onrender.com/api/v1/players/top-scorers?league_name=La Liga&country_name=Spain'
 
 
-  /teams:
+  /api/v1/teams:
     get: 
-      operationId: getTeams
+      operationId: teams
       summary: Get the list of teams in a league.
       parameters:
         - in: query
@@ -116,6 +134,10 @@ paths:
           description: The league was not found
         "500":
           description: Internal server error
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/errorResponse"
 
       x-code-samples:
         - lang: curl
@@ -178,3 +200,9 @@ components:
              type: string
            team_coach:
              type: string
+
+    errorResponse:
+      type: object
+      properties:
+        error:
+          type: string

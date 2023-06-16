@@ -9,7 +9,7 @@
     },
     "api": {
       "type": "openapi",
-      "url": "https://football-plugin.onrender.com/openapi.yaml",
+      "url": "https://football-plugin.onrender.com/.well-known/openai.yaml",
       "is_user_authenticated": false
     },
     "logo_url": "https://football-plugin.onrender.com/logo.jpg",
