@@ -4,9 +4,9 @@ info:
   description: A plugin that helps the user to get recent and accurate infomation about footbal using ChatGPT.
   version: 'v1'
 servers:
-  - url: https://football-plugin.onrender.com
+  - url: https://football-plugin.onrender.com/api/v1
 paths:
-  /api/v1/players:
+  /players:
     get:
       # operationId: getTeamPlayers
       summary: Get the list of players for the team
@@ -45,7 +45,7 @@ paths:
         "500":
           description: Internal server error
 
-  /api/v1/players/top-scorers:
+  /players/top-scorers:
     get: 
       # operationId: getTopScorers
       summary: Get the list of top goalscorers in a league.
@@ -84,7 +84,7 @@ paths:
              curl -X GET 'https://football-plugin.onrender.com/api/v1/players/top-scorers?league_name=La Liga&country_name=Spain'
 
 
-  /api/v1/teams:
+  /teams:
     get: 
       # operationId: getTeams
       summary: Get the list of teams in a league.
