@@ -3,7 +3,7 @@ const { check, validationResult } = require('express-validator');
 const LeagueService = require('../../services/LeagueService');
 const TeamService = require('../../services/TeamService');
 
-router.get('/getTeams', [
+router.get('/', [
   check("league_name", "league_name is required").exists(),
   check("country_name", "country_name is required").exists(),
 ], async (req, res, next) => {

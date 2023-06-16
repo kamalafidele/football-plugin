@@ -17,15 +17,14 @@ const { PORT, HOST, ENV_MODE } = process.env;
 app.use(logger('dev'));
 app.use(express.urlencoded({ extended: true, limit: '50mb', parameterLimit: 50000 }));
 app.use(express.json({ limit: '50mb', extended: true }));
-app.use(express.static('public'));
-
-app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerFile));
 app.use(
   cors({
     origin: '*',
     credentials: true,
   })
 );
+app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerFile));
+app.use(express.static('public'));
 
 app.get('/', (req, res) => {
   return res.sendFile(path.join(__dirname, 'public/homepage.html'));
