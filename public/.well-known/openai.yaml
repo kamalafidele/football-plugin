@@ -14,19 +14,19 @@ paths:
       - in: query
         name: league_name
         schema:
-            type: string
+          type: string
         required: true
         description: The name of the league.
       - in: query
         name: country_name
         schema:
-            type: string
+          type: string
         required: true
-        description: The name of the country where the leauge belongs.
+        description: The name of the country where the league belongs.
       - in: query
         name: team_name
         schema:
-            type: true
+          type: string
         required: true
         description: The name of the team
 
@@ -63,15 +63,15 @@ paths:
         - in: query
           name: league_name
           schema:
-              type: string
+            type: string
           required: true
           description: The name of the league.
         - in: query
           name: country_name
           schema:
-              type: true
+            type: string
           required: true
-          description: The name of the country where the leauge belongs.
+          description: The name of the country where the league belongs.
 
       responses:
         "200":
@@ -110,15 +110,15 @@ paths:
         - in: query
           name: league_name
           schema:
-              type: string
+            type: string
           required: true
           description: The name of the league.
         - in: query
           name: country_name
           schema:
-              type: true
+            type: string
           required: true
-          description: The name of the country where the leauge belongs.
+          description: The name of the country where the league belongs.
 
       responses:
         "200":
@@ -132,6 +132,10 @@ paths:
           description: Query parameters were not provided
         "404":
           description: The league was not found
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/errorResponse"
         "500":
           description: Internal server error
           content:
