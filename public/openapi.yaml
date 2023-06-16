@@ -8,7 +8,7 @@ servers:
 paths:
   /players:
     get:
-      # operationId: getTeamPlayers
+      operationId: getTeamPlayers
       summary: Get the list of players for the team
       parameters:
       - in: query
@@ -47,7 +47,7 @@ paths:
 
   /players/top-scorers:
     get: 
-      # operationId: getTopScorers
+      operationId: getTopScorers
       summary: Get the list of top goalscorers in a league.
       parameters:
         - in: query
@@ -86,7 +86,7 @@ paths:
 
   /teams:
     get: 
-      # operationId: getTeams
+      operationId: getTeams
       summary: Get the list of teams in a league.
       parameters:
         - in: query
