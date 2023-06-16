@@ -1,4 +1,4 @@
-openapi: 3.0.0
+openapi: 3.0.1
 info:
   title: Football Notitia
   description: A plugin that helps the user to get recent and accurate infomation about footbal using ChatGPT.
@@ -6,7 +6,7 @@ info:
 servers:
   - url: https://football-plugin.onrender.com
 paths:
-  /api/v1/players/:
+  /api/v1/players:
     get:
       operationId: getTeamPlayers
       summary: Get the list of players for the team
@@ -45,7 +45,7 @@ paths:
         "500":
           description: Internal server error
 
-  /api/v1/players/top-scorers/:
+  /api/v1/players/top-scorers:
     get: 
       operationId: getTopScorers
       summary: Get the list of top goalscorers in a league.
@@ -79,7 +79,7 @@ paths:
           description: Internal server error
 
 
-  /api/v1/teams/:
+  /api/v1/teams:
     get: 
       operationId: getTeams
       summary: Get the list of teams in a league.
