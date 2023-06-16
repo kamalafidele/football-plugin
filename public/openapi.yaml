@@ -78,6 +78,11 @@ paths:
         "500":
           description: Internal server error
 
+      x-code-samples:
+        - lang: curl
+          source: |
+             curl -X GET 'https://football-plugin.onrender.com/api/v1/players/top-scorers?league_name=La Liga&country_name=Spain'
+
 
   /api/v1/teams:
     get: 
@@ -111,6 +116,11 @@ paths:
           description: The league was not found
         "500":
           description: Internal server error
+
+      x-code-samples:
+        - lang: curl
+          source: |
+             curl -X GET 'https://football-plugin.onrender.com/api/v1/teams?league_name=Premier League&country_name=England'
 
 
 components:
